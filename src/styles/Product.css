@@ -1,0 +1,10 @@
+.product{
+    width: 75%;
+   
+}
+.sort-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}

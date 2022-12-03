@@ -16,10 +16,10 @@ const Header = () => {
 
             </div>
             <div className='middle'>
-                <input className="search-input" placeholder='Search your product here'/>
+                <input className="search-input" placeholder='Search your product here' />
             </div>
             <div className='right'>
-           <svg/>
+                <img src={svg} className="svg" />
             </div>
         </nav>
     )
