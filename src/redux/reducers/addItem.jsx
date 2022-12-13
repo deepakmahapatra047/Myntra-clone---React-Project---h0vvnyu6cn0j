@@ -1,4 +1,4 @@
-const addItem = [];
+const addItem =[];
 
 const addItems=(state = addItem,action)=>{
    
@@ -22,4 +22,4 @@ const addItems=(state = addItem,action)=>{
     }
 }
 
-export default addItem;
+export default addItems;

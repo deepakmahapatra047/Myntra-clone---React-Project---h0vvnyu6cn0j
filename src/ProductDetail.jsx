@@ -10,9 +10,9 @@ import { useSelector } from 'react-redux'
 
 const ProductDetail = () => {
 
-  const state= useSelector((state) => console.log("state",state))
+  const state= useSelector((state) => state.addItem)
 
-
+console.log("state",state)
   const prodId = useParams()
   const prodDetail = data.filter((item, id) => id == prodId.id)
   const product = prodDetail[0]
@@ -23,12 +23,14 @@ const ProductDetail = () => {
 
   console.log("dispatch",dispatch(addItem(product)))
 
-  const handleCart = (product) => {
+
+  
+  const handleCart = (products) => {
     if (cartBtn == "Add to cart") {
-      dispatch(addItem(product))
+      dispatch(addItem(products))
       setCartBtn("Remove from cart")
     } else {
-      dispatch(delItem(product))
+      dispatch(delItem(products))
       setCartBtn("Add to cart")
     }
   }

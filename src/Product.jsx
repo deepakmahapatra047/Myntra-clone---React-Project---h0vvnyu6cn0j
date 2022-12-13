@@ -5,6 +5,63 @@ import Card from "./Card"
 import { useState } from 'react'
 
 
+const Filter = ({setProductData}) => {
+
+   
+
+    function handleRadio(e){
+        if(e.target.value=="Male"){
+          setProductData(()=>{
+            return [...data].filter((item)=>{
+                return item.gender==="M";
+            })
+          })
+        }
+        if(e.target.value=="Female"){
+            setProductData(()=>{
+                return [...data].filter((item)=>{
+                    return item.gender==="F";
+                })
+            })
+         }
+    }
+
+    function handleOnChange(e){
+        if(e.target.checked && e.target.name=='white'){
+            setProductData(()=>{
+                return [...data].filter((item)=>{
+                    return item.cat==="W";
+                })
+            })
+        if(e.target.checked && e.target.name=='folded-sleeves'){
+            setProductData(()=>{
+                return [...data].filter((item)=>{
+                    return item.cat==="";
+                })
+            })
+        }
+    }
+    }
+
+    return (
+        <div className='filter-container'>
+            <div className='gender'>
+                <p>Gender :-</p>
+                <input type="radio" value="Male" name="gender" onChange={handleRadio} /> Male <br />
+                <input type="radio" value="Female" name="gender" onChange={handleRadio}/> Female
+            </div>
+
+            <div className='dress-category'>
+                <p>Categories :-</p>
+                <input type="checkbox" value="white" name='white'  onChange={handleOnChange}/> White <br/>
+                <input type="checkbox" value="folded-sleeves" name='folded-sleeves'  onChange={handleOnChange}/> Folded Sleeves 
+
+            </div>
+        </div>
+    )
+}
+
+
 const Product = () => {
 
     const [productData, setProductData] = useState(data)
@@ -31,6 +88,8 @@ const Product = () => {
     
     return (
         <div className='product-container'>
+            <Filter  setProductData={setProductData}/>
+            <div>
             <span>Sort by :-
             <select  onChange={handleChange}>
 
@@ -53,6 +112,7 @@ const Product = () => {
                             />
                         })
                     }
+            </div>
             </div>
         </div>
     )
