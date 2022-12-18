@@ -1,6 +1,7 @@
-.single-card{
-    height: 16rem;
-    width: 10rem;
+.single-card {
+
+    height: 320px;
+    width: 200px;
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -8,33 +9,41 @@
     flex-direction: column;
     transition: all 0.5s ease;
 }
-.single-card:hover{
+
+.single-card:hover {
     box-shadow: 5px 5px 10px;
+    cursor: pointer;
 }
-.single-card-img{
-    height: 12rem;
-    width: 10rem;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+
+.single-card-img {
+
+    height: 210px;
+    width: 200px;
+
 }
-.single-prod-descrip{
+
+.single-prod-descrip {
     font-size: 12px;
     text-align: center;
 }
-.single-price{
+
+.single-price {
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
 }
-.strickPrice{
+
+.strickPrice {
+
     text-decoration: line-through;
     font-size: 12px;
 }
-.discount{
+
+.discount {
     color: red;
     font-size: 14px;
-    font-weight:500;
+    font-weight: 500;
     font-style: italic;
 }

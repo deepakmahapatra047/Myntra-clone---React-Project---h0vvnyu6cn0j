@@ -1,40 +1,43 @@
 import React from 'react'
 import "./ProductDetail.css"
 import { useParams } from 'react-router-dom'
-import data from "./data"
+import data from "../data"
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { addItem, delItem } from "./redux/actions/index"
-import { useSelector } from 'react-redux'
+import { CartState } from '../Context/Context'
+
 
 
 const ProductDetail = () => {
+    const {
+        state: { cart },
+        dispatch,
+      } = CartState();
+    
 
-  const state= useSelector((state) => state.addItem)
 
-console.log("state",state)
   const prodId = useParams()
-  const prodDetail = data.filter((item, id) => id == prodId.id)
+  const prodDetail = data.filter((item) => item.link === prodId.id)
   const product = prodDetail[0]
 
 
   const [cartBtn, setCartBtn] = useState("Add to cart")
-  const dispatch = useDispatch()
 
-  console.log("dispatch",dispatch(addItem(product)))
-
-
-  
-  const handleCart = (products) => {
+  const handleCart = (product) => {
     if (cartBtn == "Add to cart") {
-      dispatch(addItem(products))
+        dispatch({
+            type: "ADD_TO_CART",
+            payload: product,
+          })
       setCartBtn("Remove from cart")
     } else {
-      dispatch(delItem(products))
+        dispatch({
+            type: "REMOVE_FROM_CART",
+            payload: product,
+          })
       setCartBtn("Add to cart")
     }
   }
-
+console.log(cart)
 
   return (
     < div style={{ display: "flex", justifyContent: "space-evenly" }}>
