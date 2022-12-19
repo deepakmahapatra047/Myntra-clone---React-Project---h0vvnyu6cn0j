@@ -36,8 +36,13 @@ const Header = () => {
         </div>
 
         <div className='right'>
-            <NavLink to="/cart">
+            <NavLink style={{
+              width:"60px",
+              display:"flex",
+              justifyContent:"space-between"
+            }} to="/cart">
             <img src={cartLogo} className="cart-logo"/>
+            <span className='cart-length'>{cart.length}</span>
             </NavLink>
         </div>
     </div>
